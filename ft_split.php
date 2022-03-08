@@ -9,7 +9,7 @@ function ft_split($str)
 	$res = explode(" ", $str);
 	foreach($res as $r)
 	{	
-		if ($r && strcmp(" ", $r) != 0)
+		if ($r && strcmp(" ", $r))
 			array_push($tab, $r);
 	}
 	return ($tab);

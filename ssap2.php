@@ -4,18 +4,13 @@
 	if ($argc <= 2)
 		exit();
 	$av = array();
-	for ($i = 1; $i < $argc; $i++)
+	unset($argv[0]);
+	array_values($argv);
+	foreach ($argv as $a)
 	{
-		if (strstr($argv[$i], " "))
-		{
-			$res = array_filter(explode(" ", $argv[$i]));
-			foreach ($res as $s)
-				array_push($av, $s);
-		}
-		else 
-			array_push($av, $argv[$i]);
+		$tab = array_filter(explode(" ", $a));
+		$av = array_merge($tab, $av);	
 	}
-	print_r($av);
 	$fin = array();
 	$res = array();
 	foreach($av as $a)
@@ -38,5 +33,6 @@
 	sort($res2);
 	foreach ($res2 as $s)
 		array_push($fin, $s);
-	print_r($fin);
+	foreach ($fin as $f)
+		print($f."\n");
 ?>
